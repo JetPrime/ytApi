@@ -15,6 +15,7 @@ export class Args {
 
     ytParams = {
         channelId: "channelId",
+        playlistId: "playlistId",
         categoryId: "categoryId",
         forUsername: "forUsername",
         id:"id",
@@ -27,6 +28,7 @@ export class Args {
     ytItem = {
         channels: "channels",
         playlists: "playlists",
+        playlistItems: "playlistItems",
         videos: "videos",
         hl: "hl",
         maxResults: "maxResults",

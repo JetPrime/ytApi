@@ -25,6 +25,10 @@ export class YoutubeRequest {
                 request += "=" + element.value;
             });
         }
+
+
+        console.log(request);
+
         return request;
     }
 }
