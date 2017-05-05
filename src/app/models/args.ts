@@ -7,6 +7,7 @@ export class Args {
         id: "id",
         invideoPromotion: "invideoPromotion",
         localizations: "localizations",
+        player: "player",
         snippet: "snippet",
         statistics: "statistics",
         status: "status",

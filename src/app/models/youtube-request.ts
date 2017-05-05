@@ -26,9 +26,6 @@ export class YoutubeRequest {
             });
         }
 
-
-        console.log(request);
-
         return request;
     }
 }

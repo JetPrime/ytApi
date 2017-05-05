@@ -48,7 +48,7 @@ export class YoutubeService {
                 .toPromise()
                 .then(response => response.json().items as YoutubeResponse)
                 .catch(this.handleError);        
-    }
+    };
 
     getPlaylist(pId: string): Promise<YoutubeResponse> {
          let request = new YoutubeRequest();
@@ -65,7 +65,22 @@ export class YoutubeService {
                 .toPromise()
                 .then(response => response.json().items as YoutubeResponse)
                 .catch(this.handleError);        
-    }
+    };
+
+    getVideo(pId: string): Promise<YoutubeResponse> {
+         let request = new YoutubeRequest();
+        request.item = this.args.ytItem.videos;
+        request.part = [];
+        request.part.push(this.args.ytPart.player);
+        request.args = [
+            new YoutubeArgs(this.args.ytParams.id, pId),
+        ];
+
+        return this.http.get(request.getUrl(request))
+                .toPromise()
+                .then(response => response.json().items as YoutubeResponse)
+                .catch(this.handleError);        
+    };
 
     private handleError(error: any): Promise<any> {
         console.error('An error occurred', error); // for demo purposes only
