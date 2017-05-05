@@ -1,4 +1,4 @@
-export class Enums {
+export class Args {
     ytPart = {
         auditDetails: "auditDetails",
         brandingSettings: "brandingSettings",
@@ -13,13 +13,15 @@ export class Enums {
         topicDetails: "topicDetails"
     };
 
-    ytArgs = {
+    ytParams = {
+        channelId: "channelId",
         categoryId: "categoryId",
         forUsername: "forUsername",
         id:"id",
         managedByMe: "managedByMe",
         mine: "mine",
-        mySubscribers: "mySubscribers"
+        mySubscribers: "mySubscribers",
+        maxResults: "maxResults"
     };
 
     ytItem = {
@@ -31,4 +33,5 @@ export class Enums {
         onBehalfOfContentOwner: "onBehalfOfContentOwner",
         pageToken: "pageToken"
     };
+
 }

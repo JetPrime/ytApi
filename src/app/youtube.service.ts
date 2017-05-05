@@ -3,31 +3,52 @@ import { Headers, Http } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
-import { Channel } from './channel';
+import { YoutubeResponse } from './youtube-response';
 import { YoutubeRequest } from './youtube-request';
 import { YoutubeArgs } from './youtube-args';
-import { Enums } from './enums';
+import { Args } from './args';
 
 @Injectable()
 export class YoutubeService {
+
     constructor(
         private http: Http,
-        private enums: Enums
+        private args: Args
     ) { }
-    getChannel(): Promise<Channel> {
+
+    getChannel(): Promise<YoutubeResponse> {
 
         let request = new YoutubeRequest();
-        request.item = this.enums.ytItem.channels;
-        request.part = this.enums.ytPart.snippet;
+        request.item = this.args.ytItem.channels;
+        request.part = [];
+        request.part.push(this.args.ytPart.snippet);
+        request.part.push(this.args.ytPart.id);
         request.args = [
-            new YoutubeArgs(this.enums.ytArgs.forUsername, "CarbotAnimations")
+            new YoutubeArgs(this.args.ytParams.forUsername, "CarbotAnimations")
         ];
 
-        return this.http.get(request.createRequest(request))
+        return this.http.get(request.getUrl(request))
                 .toPromise()
-                .then(response => response.json().items[0].snippet as Channel)
+                .then(response => response.json().items as YoutubeResponse)
                 .catch(this.handleError);
     };
+
+    getPlaylists(pId: string): Promise<YoutubeResponse> {
+        let request = new YoutubeRequest();
+        request.item = this.args.ytItem.playlists;
+        request.part = [];
+        request.part.push(this.args.ytPart.snippet);
+        request.args = [
+            new YoutubeArgs(this.args.ytParams.channelId, pId),
+            new YoutubeArgs(this.args.ytParams.maxResults, "50")
+        ];
+
+        return this.http.get(request.getUrl(request))
+                .toPromise()
+                .then(response => response.json().items as YoutubeResponse)
+                .catch(this.handleError);        
+    }
+
     private handleError(error: any): Promise<any> {
         console.error('An error occurred', error); // for demo purposes only
         return Promise.reject(error.message || error);

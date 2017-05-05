@@ -1,6 +1,6 @@
 import { Thumbnail } from './thumbnail';
 
-export class Channel{
+export class Snippet{
     title: string;
     description: string;
     thumbnails: Thumbnail;
