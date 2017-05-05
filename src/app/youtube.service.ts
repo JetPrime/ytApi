@@ -20,7 +20,7 @@ export class YoutubeService {
         request.item = this.enums.ytItem.channels;
         request.part = this.enums.ytPart.snippet;
         request.args = [
-            new YoutubeArgs(this.enums.ytArgs.forUsername, "CarbotAnimationss")
+            new YoutubeArgs(this.enums.ytArgs.forUsername, "CarbotAnimations")
         ];
 
         return this.http.get(request.createRequest(request))
