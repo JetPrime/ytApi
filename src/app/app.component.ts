@@ -5,18 +5,7 @@ import { YoutubeItem } from './youtube-item';
 
 @Component({
   selector: 'my-app',
-  template: `
-  <div *ngIf="channel">
-    <img src="{{channel.snippet.thumbnails.default.url}}"/>
-    <h1>{{channel.snippet.title}}</h1>
-    <p>{{channel.id}}</p>
-  </div>
-  <div *ngIf="playlists">
-    <div class="col-md-4" *ngFor="let playlist of playlists">
-      <h4>{{playlist.snippet.title}}</h4>
-    </div>
-  </div>
-  `,
+  templateUrl:'./app.component.html',
   providers: [ YoutubeService ]
 })
 export class AppComponent implements OnInit 
