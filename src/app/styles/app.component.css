@@ -1,3 +1,37 @@
 .ytChannelTitle {
     display: inline-block;
 }
+
+#search #content{
+    width: 100%;
+    height: 10em;
+    background-color: #4A9D8F;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#search #content input{
+    border: none;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+}
+
+#channel #content {
+    width: 100%;
+    overflow: auto;
+    background-color: #06705E;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+#playlists #content {
+    width: 100%;
+    overflow: auto;
+    height: 25em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}

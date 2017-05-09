@@ -1,13 +1,17 @@
-<div class="col-md-12" *ngIf="playlists">
-    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" *ngFor="let playlist of playlists" (click)="onPlaylistSelect(playlist.id)">
-        <h4>{{playlist.snippet.title}}</h4>
-        <img src="{{playlist.snippet.thumbnails.default.url}}"/>
-    </div>
-</div>
-<div class="col-md-12" *ngIf="playlist">
-    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" *ngFor="let video of playlist" (click)="onVideoSelect(video.snippet.resourceId.videoId)">
-        <p>{{video.snippet.title}}</p>
-        <img src="{{video.snippet.thumbnails.default.url}}"/>
+<div id="playlists">
+    <div id="content">
+        <div class="col-md-12" *ngIf="playlists">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" *ngFor="let playlist of playlists" (click)="onPlaylistSelect(playlist.id)">
+                <h4>{{playlist.snippet.title}}</h4>
+                <img src="{{playlist.snippet.thumbnails.default.url}}"/>
+            </div>
+        </div>
+        <div class="col-md-12" *ngIf="playlist">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" *ngFor="let video of playlist" (click)="onVideoSelect(video.snippet.resourceId.videoId)">
+                <p>{{video.snippet.title}}</p>
+                <img src="{{video.snippet.thumbnails.default.url}}"/>
+            </div>
+        </div>
     </div>
 </div>
 <cmp-video [video]=video></cmp-video>

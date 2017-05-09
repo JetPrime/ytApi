@@ -1,7 +1,12 @@
-<div class="col-md-12" *ngIf="channel">
-    <div>
-        <img src="{{channel.snippet.thumbnails.default.url}}"/>
-        <h1 class="ytChannelTitle">{{channel.snippet.title}}</h1>
+<div id="channel">
+    <div id="content">
+        <div class="col-md-12" *ngIf="channel">
+            <div id="channelTitle">
+                <img src="{{channel.snippet.thumbnails.default.url}}"/>
+                <h1 class="ytChannelTitle">{{channel.snippet.title}}</h1>
+            </div>
+        </div>
     </div>
 </div>
+
 <cmp-playlists [playlists]="playlists"></cmp-playlists>

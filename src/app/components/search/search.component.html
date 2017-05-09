@@ -1,1 +1,5 @@
-<input [(ngModel)]="channelRequest" placeholder="YoutubeChannel" (keyup.enter)="onEnter(search.value)" #search/>
+<div id="search">
+    <div id="content">
+        <input [(ngModel)]="channelRequest" placeholder="YoutubeChannel" (keyup.enter)="onEnter(search.value)" #search (click)="search.value=''"/>
+    </div>
+</div>
