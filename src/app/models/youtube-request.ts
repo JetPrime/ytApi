@@ -25,7 +25,7 @@ export class YoutubeRequest {
                 request += "=" + element.value;
             });
         }
-
+        
         return request;
     }
 }

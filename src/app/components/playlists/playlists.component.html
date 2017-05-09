@@ -1,9 +1,3 @@
-<div class="col-md-12" *ngIf="channel">
-    <div>
-        <img src="{{channel.snippet.thumbnails.default.url}}"/>
-        <h1 class="ytChannelTitle">{{channel.snippet.title}}</h1>
-    </div>
-</div>
 <div class="col-md-12" *ngIf="playlists">
     <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" *ngFor="let playlist of playlists" (click)="onPlaylistSelect(playlist.id)">
         <h4>{{playlist.snippet.title}}</h4>
@@ -16,7 +10,4 @@
         <img src="{{video.snippet.thumbnails.default.url}}"/>
     </div>
 </div>
-<div class="col-md-12" *ngIf="video">
-    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" #videoPlayer>
-    </div>
-</div>
+<cmp-video [video]=video></cmp-video>

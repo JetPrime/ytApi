@@ -24,7 +24,7 @@ export class YoutubeService {
         request.part.push(this.args.ytPart.snippet);
         request.part.push(this.args.ytPart.id);
         request.args = [
-            new YoutubeArgs(this.args.ytParams.forUsername, "CarbotAnimations")
+            new YoutubeArgs(this.args.ytParams.forUsername, "carbotanimations")
         ];
 
         return this.http.get(request.getUrl(request))
