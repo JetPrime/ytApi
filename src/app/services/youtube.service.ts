@@ -16,7 +16,7 @@ export class YoutubeService {
         private args: Args
     ) { }
 
-    getChannel(): Promise<YoutubeResponse> {
+    getChannel(pChannel: string): Promise<YoutubeResponse> {
 
         let request = new YoutubeRequest();
         request.item = this.args.ytItem.channels;
@@ -24,7 +24,7 @@ export class YoutubeService {
         request.part.push(this.args.ytPart.snippet);
         request.part.push(this.args.ytPart.id);
         request.args = [
-            new YoutubeArgs(this.args.ytParams.forUsername, "carbotanimations")
+            new YoutubeArgs(this.args.ytParams.forUsername, pChannel)
         ];
 
         return this.http.get(request.getUrl(request))

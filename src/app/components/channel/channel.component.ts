@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { YoutubeResponse } from '../../models/youtube-response';
 import { YoutubeService } from '../../services/youtube.service';
@@ -9,9 +9,11 @@ import { YoutubeService } from '../../services/youtube.service';
   styleUrls: [ '../../../styles/app.component.css' ]
 })
 
-export class ChannelComponent implements OnInit {
+export class ChannelComponent {
 
   @Input()
+  channelRequest: string;
+
   channel : YoutubeResponse;
 
   playlists: YoutubeResponse;
@@ -19,12 +21,13 @@ export class ChannelComponent implements OnInit {
 
   constructor( private ytService: YoutubeService){}
 
-  ngOnInit(): void {
+  ngOnChanges(): void {
+    if(this.channelRequest)
       this.getChannel();
   };
 
   getChannel(): void {
-    this.ytService.getChannel().then(
+    this.ytService.getChannel(this.channelRequest).then(
       channel => { 
         this.channel = channel[0];
         this.getPlaylists(channel[0].id);

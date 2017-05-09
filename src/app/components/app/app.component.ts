@@ -11,5 +11,9 @@ import { YoutubeItem } from '../../models/youtube-item';
 })
 export class AppComponent
 { 
-  channel : YoutubeResponse;
+  channelRequest: string;
+
+  onRequest(pChannelRequest: string) {
+    this.channelRequest = pChannelRequest;
+  }
 }
